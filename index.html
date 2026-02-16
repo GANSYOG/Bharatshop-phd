@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BharatShop PhD - AI Shopping Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="grain-overlay"></div>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>BharatShop<span class="phd">PhD</span></h1>
+                <p class="tagline">आपका AI Shopping Expert</p>
+            </div>
+            <nav class="nav">
+                <button class="lang-toggle" id="langToggle">
+                    🌐 हिन्दी
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">
+                    <span class="line">Smart Shopping,</span>
+                    <span class="line">Smarter Savings</span>
+                </h2>
+                <p class="hero-subtitle">Upload any product image and get instant AI-powered recommendations, price comparisons, and expert shopping advice in 29 Indian languages.</p>
+            </div>
+        </div>
+        <div class="decorative-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </section>
+
+    <!-- Main Upload Section -->
+    <section class="upload-section">
+        <div class="container">
+            <div class="upload-card">
+                <div class="upload-area" id="uploadArea">
+                    <input type="file" id="imageInput" accept="image/*" hidden>
+                    <div class="upload-content">
+                        <div class="upload-icon">📸</div>
+                        <h3>Upload Product Image</h3>
+                        <p>Drop an image or click to browse</p>
+                        <button class="upload-btn" id="uploadBtn">Choose Image</button>
+                    </div>
+                </div>
+
+                <div class="preview-area" id="previewArea" style="display: none;">
+                    <img id="previewImage" alt="Preview">
+                    <button class="remove-btn" id="removeBtn">✕</button>
+                </div>
+
+                <div class="analyze-section" id="analyzeSection" style="display: none;">
+                    <button class="analyze-btn" id="analyzeBtn">
+                        <span>Analyze Product</span>
+                        <span class="btn-icon">🔍</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section" id="resultsSection" style="display: none;">
+        <div class="container">
+            <div class="results-header">
+                <h2>Analysis Results</h2>
+            </div>
+            
+            <div class="results-grid">
+                <!-- Product Details Card -->
+                <div class="result-card product-details">
+                    <div class="card-header">
+                        <h3>Product Details</h3>
+                        <span class="card-icon">📦</span>
+                    </div>
+                    <div class="card-content" id="productDetails">
+                        <div class="loading-spinner"></div>
+                    </div>
+                </div>
+
+                <!-- Recommendations Card -->
+                <div class="result-card recommendations">
+                    <div class="card-header">
+                        <h3>Smart Recommendations</h3>
+                        <span class="card-icon">💡</span>
+                    </div>
+                    <div class="card-content" id="recommendations">
+                        <div class="loading-spinner"></div>
+                    </div>
+                </div>
+
+                <!-- Price Analysis Card -->
+                <div class="result-card price-analysis">
+                    <div class="card-header">
+                        <h3>Price Insights</h3>
+                        <span class="card-icon">💰</span>
+                    </div>
+                    <div class="card-content" id="priceAnalysis">
+                        <div class="loading-spinner"></div>
+                    </div>
+                </div>
+
+                <!-- Shopping Tips Card -->
+                <div class="result-card shopping-tips">
+                    <div class="card-header">
+                        <h3>Shopping Tips</h3>
+                        <span class="card-icon">🎯</span>
+                    </div>
+                    <div class="card-content" id="shoppingTips">
+                        <div class="loading-spinner"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="secondary-btn" id="newAnalysisBtn">Analyze Another Product</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">Why BharatShop PhD?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>AI-Powered Analysis</h3>
+                    <p>Advanced Claude AI analyzes your product images for detailed insights and recommendations</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌏</div>
+                    <h3>29 Languages</h3>
+                    <p>Get advice in Hindi, Tamil, Telugu, Bengali, and 25+ other Indian languages</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💸</div>
+                    <h3>Save Money</h3>
+                    <p>Compare prices, find better alternatives, and get budget-friendly suggestions</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Instant Results</h3>
+                    <p>Get comprehensive shopping insights in seconds, not hours</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>BharatShop PhD</h3>
+                    <p>Powered by Claude AI • Made with ❤️ in India</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
