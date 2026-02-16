@@ -245,7 +245,7 @@ Analyzes a product image and returns shopping advice.
 - Ensure `.env` file is in the root directory
 
 **Images not uploading:**
-- Check file size (max 50MB)
+- Check file size (max 10MB)
 - Verify image format (jpg, png, webp, gif)
 - Clear browser cache
 

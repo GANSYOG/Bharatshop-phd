@@ -312,8 +312,8 @@ pm2 restart bharatshop
 
 ### Issue: Images too large
 **Solution:** 
-- Current limit is 50MB
-- If needed, adjust in `server.js`: `limit: '50mb'`
+- Current limit is 10MB
+- If needed, adjust in `server.js`: `limit: '10mb'`
 
 ---
 
