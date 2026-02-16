@@ -15,7 +15,8 @@ const content = {
         analyzeBtn: 'Analyze Product',
         resultsTitle: 'Analysis Results',
         newAnalysis: 'Analyze Another Product',
-        langToggle: '🌐 हिन्दी'
+        langToggle: '🌐 हिन्दी',
+        errorLoadingImage: 'Failed to load image. Please try again.'
     },
     hi: {
         heroTitle1: 'स्मार्ट शॉपिंग,',
@@ -27,7 +28,8 @@ const content = {
         analyzeBtn: 'उत्पाद का विश्लेषण करें',
         resultsTitle: 'विश्लेषण परिणाम',
         newAnalysis: 'एक और उत्पाद का विश्लेषण करें',
-        langToggle: '🌐 English'
+        langToggle: '🌐 English',
+        errorLoadingImage: 'तस्वीर लोड करने में विफल। कृपया फिर से प्रयास करें।'
     }
 };
 
@@ -119,6 +121,11 @@ function loadImage(file) {
         }, 100);
     };
     
+    reader.onerror = (e) => {
+        console.error("Error reading file:", e.target.error);
+        alert(content[currentLanguage].errorLoadingImage);
+    };
+
     reader.readAsDataURL(file);
 }
 
