@@ -26,6 +26,18 @@ function createFallbackResponse(text, language) {
     };
 }
 
+
+function extractJson(text) {
+    if (!text || typeof text !== 'string') return null;
+    const firstBrace = text.indexOf('{');
+    const lastBrace = text.lastIndexOf('}');
+    if (firstBrace !== -1 && lastBrace !== -1 && lastBrace > firstBrace) {
+        return text.substring(firstBrace, lastBrace + 1);
+    }
+    return null;
+}
+
 module.exports = {
+    extractJson,
     createFallbackResponse
 };
