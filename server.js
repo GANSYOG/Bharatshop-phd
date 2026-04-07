@@ -5,7 +5,7 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 require('dotenv').config();
-const { createFallbackResponse } = require('./responseHelpers');
+const { createFallbackResponse, extractJson } = require('./responseHelpers');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -133,9 +133,9 @@ Focus on the Indian market, Indian prices, and locally available options. Be spe
         const responseText = data.content[0].text;
         
         // Extract JSON from response (Claude might include markdown formatting)
-        let jsonMatch = responseText.match(/\{[\s\S]*\}/);
+        const jsonMatch = extractJson(responseText);
         if (jsonMatch) {
-            const result = JSON.parse(jsonMatch[0]);
+            const result = JSON.parse(jsonMatch);
             return result;
         }
         
