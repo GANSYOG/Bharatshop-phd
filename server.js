@@ -30,8 +30,14 @@ app.post('/api/analyze', async (req, res) => {
         }
         
         // Extract base64 data
-        const base64Data = image.split(',')[1];
-        const imageType = image.split(';')[0].split(':')[1];
+        const commaIndex = image.indexOf(',');
+        const base64Data = commaIndex !== -1 ? image.substring(commaIndex + 1) : '';
+
+        const colonIndex = image.indexOf(':');
+        const semicolonIndex = image.indexOf(';');
+        const imageType = (colonIndex !== -1 && semicolonIndex !== -1 && colonIndex < semicolonIndex)
+            ? image.substring(colonIndex + 1, semicolonIndex)
+            : '';
         
         // Call Claude API
         const analysisResult = await analyzeWithClaude(base64Data, imageType, language);
